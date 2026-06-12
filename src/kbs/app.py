@@ -289,11 +289,7 @@ def load_options(class_name: str) -> list[Option]:
     options = []
     for binding in payload.get("results", {}).get("bindings", []):
         uri = binding["item"]["value"]
-        label = (
-            label_for_uri(uri)
-            or binding.get("label", {}).get("value")
-            or humanize_local_name(uri)
-        )
+        label = binding.get("label", {}).get("value") or humanize_local_name(uri)
         options.append(Option(label=label, uri=uri, local_name=local_name(uri)))
     return options
 
