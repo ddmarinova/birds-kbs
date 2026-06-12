@@ -11,7 +11,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 """
 
 DEFAULT_QUERY = f"""{PREFIXES}
-SELECT ?species
+SELECT DISTINCT ?species
 WHERE {{
   ?species rdf:type birds:Species .
 }}
@@ -154,7 +154,7 @@ def humanize_local_name(value: str) -> str:
 
 def option_query(class_name: str) -> str:
     return f"""{PREFIXES}
-SELECT ?item ?label
+SELECT DISTINCT ?item ?label
 WHERE {{
   ?item rdf:type birds:{class_name} .
   ?item rdfs:label ?label .
@@ -203,7 +203,7 @@ def build_species_filter_query(filters: dict[str, list[Option]]) -> str:
             required_patterns.append(f"  ?species birds:{predicate} ?{variable} .")
 
     return f"""{PREFIXES}
-SELECT ?species
+SELECT DISTINCT ?species
 WHERE {{
   ?species rdf:type birds:Species .
 {chr(10).join(required_patterns)}
@@ -225,7 +225,7 @@ def build_question_query(
 
     if question == "observations_by_location" and selected:
         return f"""{PREFIXES}
-SELECT
+SELECT DISTINCT
   ?observation
   ?date
   ?species
@@ -244,7 +244,7 @@ ORDER BY DESC(?date)
 
     if question == "declining_or_threatened":
         return f"""{PREFIXES}
-SELECT
+SELECT DISTINCT
   ?species
   ?status
   ?trend
@@ -277,7 +277,7 @@ ORDER BY DESC(?score) ?similarSpecies
 
     if question == "explain_similarity" and selected:
         return f"""{PREFIXES}
-SELECT
+SELECT DISTINCT
   ?similarSpecies
   ?criterion
   ?sharedValue
@@ -320,7 +320,7 @@ ORDER BY ?species
 
     if question in {"inverse_reasoner_demo", "reasoner_check"} and selected:
         return f"""{PREFIXES}
-SELECT ?bird ?observation ?date
+SELECT DISTINCT ?bird ?observation ?date
 WHERE {{
   ?bird birds:belongsToSpecies birds:{selected.local_name} ;
     birds:hasObservation ?observation .
@@ -331,7 +331,7 @@ ORDER BY ?bird ?date
 
     if question == "species_inverse_check" and selected:
         return f"""{PREFIXES}
-SELECT
+SELECT DISTINCT
   ?species
   ?bird
 WHERE {{
@@ -343,7 +343,7 @@ ORDER BY ?species ?bird
 
     if question == "subclass_reasoner_check" and selected:
         return f"""{PREFIXES}
-SELECT
+SELECT DISTINCT
   ?species
   ?inferredType
 WHERE {{
@@ -356,7 +356,7 @@ ORDER BY ?species
 
     if question == "morphology_subclass_check" and selected:
         return f"""{PREFIXES}
-SELECT
+SELECT DISTINCT
   ?morphology
   ?inferredType
 WHERE {{
@@ -369,7 +369,7 @@ ORDER BY ?morphology
 
     if question == "category_reasoner_check" and selected:
         return f"""{PREFIXES}
-SELECT
+SELECT DISTINCT
   ?species
   ("{selected.local_name}" AS ?inferredType)
 WHERE {{
@@ -477,7 +477,7 @@ ORDER BY DESC(?dietCount) ?species
 
     if question == "urban_at_risk":
         return f"""{PREFIXES}
-SELECT
+SELECT DISTINCT
   ?species
   ?status
   ?trend
@@ -493,7 +493,7 @@ ORDER BY ?species
 
     if question == "season_mismatch_observations":
         return f"""{PREFIXES}
-SELECT
+SELECT DISTINCT
   ?observation
   ?date
   ?species
@@ -523,7 +523,7 @@ ORDER BY ?date
 
     if question == "morphology_profile":
         return f"""{PREFIXES}
-SELECT
+SELECT DISTINCT
   ?species
   ?beak
   ?legs
@@ -543,7 +543,7 @@ ORDER BY ?species
 
     if question == "taxonomic_path" and selected:
         return f"""{PREFIXES}
-SELECT
+SELECT DISTINCT
   ?species
   ?genus
   ?family
@@ -567,7 +567,7 @@ WHERE {{
 
 def build_species_profile_query(selected: Option) -> str:
     return f"""{PREFIXES}
-SELECT
+SELECT DISTINCT
   ?property
   ?value
 WHERE {{
