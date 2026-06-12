@@ -1,0 +1,2326 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://birds.ontology"
+     xml:base="http://birds.ontology"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:birds="http://birds.ontology#"
+     xmlns:dcterms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://birds.ontology">
+        <owl:versionIRI rdf:resource="http://birds.ontology/1.0.0"/>
+        <rdfs:comment xml:lang="bg">Онтология за представяне на знания за птици в България. Включва таксономична класификация, морфология, хранителни навици, местообитания и природозащитен статус. Данни от Българското дружество за защита на птиците - БДЗП (birdlife.bg).</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://birds.ontology#belongsToSpecies -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#belongsToSpecies">
+        <owl:inverseOf rdf:resource="http://birds.ontology#isSpeciesOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Bird"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Species"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#foundInRegion -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#foundInRegion">
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasBeakMorphology -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasBeakMorphology">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#BeakMorphology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasBreedingSeason -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasBreedingSeason">
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Season"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasGender -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasGender">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Bird"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Gender"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasIUCNStatus -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasIUCNStatus">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#IUCNStatus"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasLegMorphology -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasLegMorphology">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#LegMorphology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasLifeStage -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasLifeStage">
+        <rdfs:domain rdf:resource="http://birds.ontology#Bird"/>
+        <rdfs:range rdf:resource="http://birds.ontology#LifeStage"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasMeasurement -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasMeasurement">
+        <rdfs:domain rdf:resource="http://birds.ontology#Observation"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Measurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasMigratoryBehaviour -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasMigratoryBehaviour">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#MigratoryBehaviour"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasObservation -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasObservation">
+        <owl:inverseOf rdf:resource="http://birds.ontology#observedBird"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Bird"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Observation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasObservedBehavior -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasObservedBehavior">
+        <rdfs:domain rdf:resource="http://birds.ontology#Observation"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Behavior"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasObservedDiet -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasObservedDiet">
+        <rdfs:domain rdf:resource="http://birds.ontology#Observation"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Diet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasObservedHabitat -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasObservedHabitat">
+        <rdfs:domain rdf:resource="http://birds.ontology#Observation"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Habitat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasObservedPlumagePattern -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasObservedPlumagePattern">
+        <rdfs:domain rdf:resource="http://birds.ontology#Observation"/>
+        <rdfs:range rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasParentTaxon -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasParentTaxon">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Taxon"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Taxon"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasPopulationTrend -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasPopulationTrend">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#PopulationTrend"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasTailMorphology -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasTailMorphology">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#TailMorphology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasTypicalBehavior -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasTypicalBehavior">
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Behavior"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasTypicalDiet -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasTypicalDiet">
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Diet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasTypicalHabitat -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasTypicalHabitat">
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Habitat"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasTypicalMeasurement -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasTypicalMeasurement">
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Measurement"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasTypicalPlumagePattern -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasTypicalPlumagePattern">
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasWeatherCondition -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasWeatherCondition">
+        <rdfs:domain rdf:resource="http://birds.ontology#Observation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#hasWingMorphology -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#hasWingMorphology">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#WingMorphology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#isObservedAtLocation -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#isObservedAtLocation">
+        <rdfs:domain rdf:resource="http://birds.ontology#Observation"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#isSpeciesOf -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#isSpeciesOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Bird"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://birds.ontology#observedBird -->
+
+    <owl:ObjectProperty rdf:about="http://birds.ontology#observedBird">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Observation"/>
+        <rdfs:range rdf:resource="http://birds.ontology#Bird"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://birds.ontology#hasImageUrl -->
+
+    <owl:DatatypeProperty rdf:about="http://birds.ontology#hasImageUrl">
+        <rdfs:domain rdf:resource="http://birds.ontology#Species"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://birds.ontology#hasMaxValue -->
+
+    <owl:DatatypeProperty rdf:about="http://birds.ontology#hasMaxValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Measurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://birds.ontology#hasMinValue -->
+
+    <owl:DatatypeProperty rdf:about="http://birds.ontology#hasMinValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Measurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://birds.ontology#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="http://birds.ontology#hasValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Measurement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://birds.ontology#observedOn -->
+
+    <owl:DatatypeProperty rdf:about="http://birds.ontology#observedOn">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://birds.ontology#Observation"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://birds.ontology#ArachnivorousSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#ArachnivorousSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalDiet"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#Spiders"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#BeakMorphology -->
+
+    <owl:Class rdf:about="http://birds.ontology#BeakMorphology">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Morphology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#Behavior -->
+
+    <owl:Class rdf:about="http://birds.ontology#Behavior"/>
+    
+
+
+    <!-- http://birds.ontology#Bird -->
+
+    <owl:Class rdf:about="http://birds.ontology#Bird">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#belongsToSpecies"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#Species"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasGender"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#Gender"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasLifeStage"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#LifeStage"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#BlackWhiteSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#BlackWhiteSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalPlumagePattern"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#BlackWhitePlumage"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#CarnivorousSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#CarnivorousSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalDiet"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://birds.ontology#InsectLarvae"/>
+                                    <rdf:Description rdf:about="http://birds.ontology#Insects"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#ConiferousForestSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#ConiferousForestSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalHabitat"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#ConiferousForest"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#DeciduousForestSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#DeciduousForestSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalHabitat"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#DeciduousForest"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#DecliningSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#DecliningSpecies">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasPopulationTrend"/>
+                <owl:hasValue rdf:resource="http://birds.ontology#Decreasing"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#Diet -->
+
+    <owl:Class rdf:about="http://birds.ontology#Diet"/>
+    
+
+
+    <!-- http://birds.ontology#EndangeredSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#EndangeredSpecies">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasIUCNStatus"/>
+                <owl:hasValue rdf:resource="http://birds.ontology#EN"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#Family -->
+
+    <owl:Class rdf:about="http://birds.ontology#Family">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Taxon"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasParentTaxon"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#Order"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#FrugivorousSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#FrugivorousSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalDiet"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#Fruits"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#Gender -->
+
+    <owl:Class rdf:about="http://birds.ontology#Gender"/>
+    
+
+
+    <!-- http://birds.ontology#Genus -->
+
+    <owl:Class rdf:about="http://birds.ontology#Genus">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Taxon"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasParentTaxon"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#Family"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#GranivorousSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#GranivorousSpecies">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalDiet"/>
+                <owl:hasValue rdf:resource="http://birds.ontology#Seeds"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#Habitat -->
+
+    <owl:Class rdf:about="http://birds.ontology#Habitat"/>
+    
+
+
+    <!-- http://birds.ontology#IUCNStatus -->
+
+    <owl:Class rdf:about="http://birds.ontology#IUCNStatus"/>
+    
+
+
+    <!-- http://birds.ontology#InsectivorousSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#InsectivorousSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalDiet"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#Insects"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#Kingdom -->
+
+    <owl:Class rdf:about="http://birds.ontology#Kingdom">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Taxon"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#LeastConcernSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#LeastConcernSpecies">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasIUCNStatus"/>
+                <owl:hasValue rdf:resource="http://birds.ontology#LC"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#LegMorphology -->
+
+    <owl:Class rdf:about="http://birds.ontology#LegMorphology">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Morphology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#LengthMeasurement -->
+
+    <owl:Class rdf:about="http://birds.ontology#LengthMeasurement">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Measurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#LifeStage -->
+
+    <owl:Class rdf:about="http://birds.ontology#LifeStage"/>
+    
+
+
+    <!-- http://birds.ontology#Location -->
+
+    <owl:Class rdf:about="http://birds.ontology#Location"/>
+    
+
+
+    <!-- http://birds.ontology#Measurement -->
+
+    <owl:Class rdf:about="http://birds.ontology#Measurement"/>
+    
+
+
+    <!-- http://birds.ontology#MigratoryBehaviour -->
+
+    <owl:Class rdf:about="http://birds.ontology#MigratoryBehaviour"/>
+    
+
+
+    <!-- http://birds.ontology#MigratorySpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#MigratorySpecies">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasMigratoryBehaviour"/>
+                <owl:hasValue rdf:resource="http://birds.ontology#Migratory"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#MixedForestSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#MixedForestSpecies">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalHabitat"/>
+                <owl:hasValue rdf:resource="http://birds.ontology#MixedForest"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#Morphology -->
+
+    <owl:Class rdf:about="http://birds.ontology#Morphology"/>
+    
+
+
+    <!-- http://birds.ontology#Observation -->
+
+    <owl:Class rdf:about="http://birds.ontology#Observation">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#isObservedAtLocation"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#Location"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#observedBird"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#Bird"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#observedOn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#OmnivorousSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#OmnivorousSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalDiet"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#Fruits"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalDiet"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#Insects"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalDiet"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#Seeds"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#OrchardSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#OrchardSpecies">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalHabitat"/>
+                <owl:hasValue rdf:resource="http://birds.ontology#Orchards"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#Order -->
+
+    <owl:Class rdf:about="http://birds.ontology#Order">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Taxon"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasParentTaxon"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#TaxonomicClass"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#PartialMigrantSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#PartialMigrantSpecies">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasMigratoryBehaviour"/>
+                <owl:hasValue rdf:resource="http://birds.ontology#PartialMigratory"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#Phylum -->
+
+    <owl:Class rdf:about="http://birds.ontology#Phylum">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Taxon"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasParentTaxon"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#Kingdom"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#PlumagePattern -->
+
+    <owl:Class rdf:about="http://birds.ontology#PlumagePattern"/>
+    
+
+
+    <!-- http://birds.ontology#PopulationTrend -->
+
+    <owl:Class rdf:about="http://birds.ontology#PopulationTrend"/>
+    
+
+
+    <!-- http://birds.ontology#RedBreastSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#RedBreastSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalPlumagePattern"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#ReddishOrangeBreast"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#Region -->
+
+    <owl:Class rdf:about="http://birds.ontology#Region"/>
+    
+
+
+    <!-- http://birds.ontology#ResidentSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#ResidentSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasMigratoryBehaviour"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#Resident"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#RiparianSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#RiparianSpecies">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalHabitat"/>
+                <owl:hasValue rdf:resource="http://birds.ontology#RiparianForest"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#Season -->
+
+    <owl:Class rdf:about="http://birds.ontology#Season"/>
+    
+
+
+    <!-- http://birds.ontology#Species -->
+
+    <owl:Class rdf:about="http://birds.ontology#Species">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Taxon"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasIUCNStatus"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#IUCNStatus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasMigratoryBehaviour"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#MigratoryBehaviour"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasParentTaxon"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#Genus"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasPopulationTrend"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#PopulationTrend"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#TailMorphology -->
+
+    <owl:Class rdf:about="http://birds.ontology#TailMorphology">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Morphology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#Taxon -->
+
+    <owl:Class rdf:about="http://birds.ontology#Taxon"/>
+    
+
+
+    <!-- http://birds.ontology#TaxonomicClass -->
+
+    <owl:Class rdf:about="http://birds.ontology#TaxonomicClass">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Taxon"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://birds.ontology#hasParentTaxon"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://birds.ontology#Phylum"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#ThreatenedSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#ThreatenedSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasIUCNStatus"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://birds.ontology#CR"/>
+                                    <rdf:Description rdf:about="http://birds.ontology#EN"/>
+                                    <rdf:Description rdf:about="http://birds.ontology#VU"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#UrbanSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#UrbanSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalHabitat"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#UrbanParksAndGardens"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#VermivorousSpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#VermivorousSpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalDiet"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#Worms"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#WeightMeasurement -->
+
+    <owl:Class rdf:about="http://birds.ontology#WeightMeasurement">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Measurement"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#WhiteBellySpecies -->
+
+    <owl:Class rdf:about="http://birds.ontology#WhiteBellySpecies">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://birds.ontology#Species"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://birds.ontology#hasTypicalPlumagePattern"/>
+                        <owl:hasValue rdf:resource="http://birds.ontology#WhiteBelly"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Species"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#WingMorphology -->
+
+    <owl:Class rdf:about="http://birds.ontology#WingMorphology">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Morphology"/>
+    </owl:Class>
+    
+
+
+    <!-- http://birds.ontology#WingspanMeasurement -->
+
+    <owl:Class rdf:about="http://birds.ontology#WingspanMeasurement">
+        <rdfs:subClassOf rdf:resource="http://birds.ontology#Measurement"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://birds.ontology#Adult -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Adult">
+        <rdf:type rdf:resource="http://birds.ontology#LifeStage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#AltitudinalMovement -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#AltitudinalMovement">
+        <rdf:type rdf:resource="http://birds.ontology#Behavior"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Animalia -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Animalia">
+        <rdf:type rdf:resource="http://birds.ontology#Kingdom"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Autumn -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Autumn">
+        <rdf:type rdf:resource="http://birds.ontology#Season"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Aves -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Aves">
+        <rdf:type rdf:resource="http://birds.ontology#TaxonomicClass"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Chordata"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#BarkForaging -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#BarkForaging">
+        <rdf:type rdf:resource="http://birds.ontology#Behavior"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#BlackCentralStripe -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#BlackCentralStripe">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#BlackHead -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#BlackHead">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#BlackWhitePlumage -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#BlackWhitePlumage">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#BluishWings -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#BluishWings">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#BorisovaGradina -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#BorisovaGradina">
+        <rdf:type rdf:resource="http://birds.ontology#Location"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#BrownBack -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#BrownBack">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Bulgaria -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Bulgaria">
+        <rdf:type rdf:resource="http://birds.ontology#Region"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#CR -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#CR">
+        <rdf:type rdf:resource="http://birds.ontology#IUCNStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#CavityNesting -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#CavityNesting">
+        <rdf:type rdf:resource="http://birds.ontology#Behavior"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#ChiselBeak -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#ChiselBeak">
+        <rdf:type rdf:resource="http://birds.ontology#BeakMorphology"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Chordata -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Chordata">
+        <rdf:type rdf:resource="http://birds.ontology#Phylum"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Animalia"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#ConiferousForest -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#ConiferousForest">
+        <rdf:type rdf:resource="http://birds.ontology#Habitat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#DeciduousForest -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#DeciduousForest">
+        <rdf:type rdf:resource="http://birds.ontology#Habitat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Decreasing -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Decreasing">
+        <rdf:type rdf:resource="http://birds.ontology#PopulationTrend"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Dendrocopos -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Dendrocopos">
+        <rdf:type rdf:resource="http://birds.ontology#Genus"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Picidae"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Dendrocopos_minor -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Dendrocopos_minor">
+        <rdf:type rdf:resource="http://birds.ontology#Species"/>
+        <birds:foundInRegion rdf:resource="http://birds.ontology#Bulgaria"/>
+        <birds:hasBeakMorphology rdf:resource="http://birds.ontology#ChiselBeak"/>
+        <birds:hasBreedingSeason rdf:resource="http://birds.ontology#Spring"/>
+        <birds:hasIUCNStatus rdf:resource="http://birds.ontology#LC"/>
+        <birds:hasLegMorphology rdf:resource="http://birds.ontology#ZygodactylLegs"/>
+        <birds:hasMigratoryBehaviour rdf:resource="http://birds.ontology#Resident"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Dendrocopos"/>
+        <birds:hasPopulationTrend rdf:resource="http://birds.ontology#Stable"/>
+        <birds:hasTailMorphology rdf:resource="http://birds.ontology#StiffTail"/>
+        <birds:hasTypicalBehavior rdf:resource="http://birds.ontology#BarkForaging"/>
+        <birds:hasTypicalBehavior rdf:resource="http://birds.ontology#Drumming"/>
+        <birds:hasTypicalBehavior rdf:resource="http://birds.ontology#TreeClimbing"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#InsectLarvae"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#Insects"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#DeciduousForest"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#MixedForest"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#Orchards"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#RiparianForest"/>
+        <birds:hasTypicalMeasurement rdf:resource="http://birds.ontology#Length_14_16_cm"/>
+        <birds:hasTypicalMeasurement rdf:resource="http://birds.ontology#Wingspan_24_29_cm"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#BlackWhitePlumage"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#StreakedBelly"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#WhiteUndertail"/>
+        <birds:hasWingMorphology rdf:resource="http://birds.ontology#RoundedWings"/>
+        <rdfs:label xml:lang="en">Lesser Spotted Woodpecker</rdfs:label>
+        <rdfs:label xml:lang="bg">Малък пъстър кълвач</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Drumming -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Drumming">
+        <rdf:type rdf:resource="http://birds.ontology#Behavior"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#EN -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#EN">
+        <rdf:type rdf:resource="http://birds.ontology#IUCNStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#EW -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#EW">
+        <rdf:type rdf:resource="http://birds.ontology#IUCNStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#EX -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#EX">
+        <rdf:type rdf:resource="http://birds.ontology#IUCNStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Erithacus -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Erithacus">
+        <rdf:type rdf:resource="http://birds.ontology#Genus"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Muscicapidae"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Erithacus_rubecula -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Erithacus_rubecula">
+        <rdf:type rdf:resource="http://birds.ontology#Species"/>
+        <birds:foundInRegion rdf:resource="http://birds.ontology#Bulgaria"/>
+        <birds:hasBeakMorphology rdf:resource="http://birds.ontology#ThinInsectivorousBeak"/>
+        <birds:hasBreedingSeason rdf:resource="http://birds.ontology#Spring"/>
+        <birds:hasBreedingSeason rdf:resource="http://birds.ontology#Summer"/>
+        <birds:hasIUCNStatus rdf:resource="http://birds.ontology#LC"/>
+        <birds:hasLegMorphology rdf:resource="http://birds.ontology#ShortPerchingLegs"/>
+        <birds:hasMigratoryBehaviour rdf:resource="http://birds.ontology#Resident"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Erithacus"/>
+        <birds:hasPopulationTrend rdf:resource="http://birds.ontology#Stable"/>
+        <birds:hasTailMorphology rdf:resource="http://birds.ontology#MediumTail"/>
+        <birds:hasTypicalBehavior rdf:resource="http://birds.ontology#AltitudinalMovement"/>
+        <birds:hasTypicalBehavior rdf:resource="http://birds.ontology#GroundForaging"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#Fruits"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#Insects"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#Seeds"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#Spiders"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#Worms"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#ConiferousForest"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#DeciduousForest"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#MixedForest"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#UrbanParksAndGardens"/>
+        <birds:hasTypicalMeasurement rdf:resource="http://birds.ontology#Length_12_14_cm"/>
+        <birds:hasTypicalMeasurement rdf:resource="http://birds.ontology#Wingspan_20_22_cm"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#BrownBack"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#ReddishOrangeBreast"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#WhiteBelly"/>
+        <birds:hasWingMorphology rdf:resource="http://birds.ontology#RoundedWings"/>
+        <rdfs:label xml:lang="en">European Robin</rdfs:label>
+        <rdfs:label xml:lang="bg">Червеногръдка</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#European_Robin_001 -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#European_Robin_001">
+        <rdf:type rdf:resource="http://birds.ontology#Bird"/>
+        <birds:belongsToSpecies rdf:resource="http://birds.ontology#Erithacus_rubecula"/>
+        <birds:hasGender rdf:resource="http://birds.ontology#Female"/>
+        <birds:hasLifeStage rdf:resource="http://birds.ontology#Adult"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#European_Robin_Observation_001 -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#European_Robin_Observation_001">
+        <rdf:type rdf:resource="http://birds.ontology#Observation"/>
+        <birds:hasObservedBehavior rdf:resource="http://birds.ontology#GroundForaging"/>
+        <birds:isObservedAtLocation rdf:resource="http://birds.ontology#Vitosha"/>
+        <birds:observedBird rdf:resource="http://birds.ontology#European_Robin_001"/>
+        <birds:observedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-10-15T09:00:00Z</birds:observedOn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Female -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Female">
+        <rdf:type rdf:resource="http://birds.ontology#Gender"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Fruits -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Fruits">
+        <rdf:type rdf:resource="http://birds.ontology#Diet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Garden_Warbler_001 -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Garden_Warbler_001">
+        <rdf:type rdf:resource="http://birds.ontology#Bird"/>
+        <birds:belongsToSpecies rdf:resource="http://birds.ontology#Sylvia_borin"/>
+        <birds:hasGender rdf:resource="http://birds.ontology#Male"/>
+        <birds:hasLifeStage rdf:resource="http://birds.ontology#Adult"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Garden_Warbler_Observation_001 -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Garden_Warbler_Observation_001">
+        <rdf:type rdf:resource="http://birds.ontology#Observation"/>
+        <birds:hasObservedBehavior rdf:resource="http://birds.ontology#GroundForaging"/>
+        <birds:isObservedAtLocation rdf:resource="http://birds.ontology#BorisovaGradina"/>
+        <birds:observedBird rdf:resource="http://birds.ontology#Garden_Warbler_001"/>
+        <birds:observedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-05-15T07:30:00Z</birds:observedOn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Great_Tit_001 -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Great_Tit_001">
+        <rdf:type rdf:resource="http://birds.ontology#Bird"/>
+        <birds:belongsToSpecies rdf:resource="http://birds.ontology#Parus_major"/>
+        <birds:hasGender rdf:resource="http://birds.ontology#Female"/>
+        <birds:hasLifeStage rdf:resource="http://birds.ontology#Juvenile"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Great_Tit_Observation_001 -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Great_Tit_Observation_001">
+        <rdf:type rdf:resource="http://birds.ontology#Observation"/>
+        <birds:hasObservedBehavior rdf:resource="http://birds.ontology#TreeClimbing"/>
+        <birds:isObservedAtLocation rdf:resource="http://birds.ontology#BorisovaGradina"/>
+        <birds:observedBird rdf:resource="http://birds.ontology#Great_Tit_001"/>
+        <birds:observedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-07-20T16:30:00Z</birds:observedOn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#GreyBluePatch -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#GreyBluePatch">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#GreyBrownUpperparts -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#GreyBrownUpperparts">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#GroundForaging -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#GroundForaging">
+        <rdf:type rdf:resource="http://birds.ontology#Behavior"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Increasing -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Increasing">
+        <rdf:type rdf:resource="http://birds.ontology#PopulationTrend"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#InsectLarvae -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#InsectLarvae">
+        <rdf:type rdf:resource="http://birds.ontology#Diet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Insects -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Insects">
+        <rdf:type rdf:resource="http://birds.ontology#Diet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Juvenile -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Juvenile">
+        <rdf:type rdf:resource="http://birds.ontology#LifeStage"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#LC -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#LC">
+        <rdf:type rdf:resource="http://birds.ontology#IUCNStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Length_12_14_cm -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Length_12_14_cm">
+        <rdf:type rdf:resource="http://birds.ontology#LengthMeasurement"/>
+        <birds:hasMaxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">14</birds:hasMaxValue>
+        <birds:hasMinValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">12</birds:hasMinValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Length_13_14_cm -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Length_13_14_cm">
+        <rdf:type rdf:resource="http://birds.ontology#LengthMeasurement"/>
+        <birds:hasMaxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">14</birds:hasMaxValue>
+        <birds:hasMinValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">13</birds:hasMinValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Length_13_15_cm -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Length_13_15_cm">
+        <rdf:type rdf:resource="http://birds.ontology#LengthMeasurement"/>
+        <birds:hasMaxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">15</birds:hasMaxValue>
+        <birds:hasMinValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">13</birds:hasMinValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Length_14_16_cm -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Length_14_16_cm">
+        <rdf:type rdf:resource="http://birds.ontology#LengthMeasurement"/>
+        <birds:hasMaxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">16</birds:hasMaxValue>
+        <birds:hasMinValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">14</birds:hasMinValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Lesser_Spotted_Woodpecker_001 -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Lesser_Spotted_Woodpecker_001">
+        <rdf:type rdf:resource="http://birds.ontology#Bird"/>
+        <birds:belongsToSpecies rdf:resource="http://birds.ontology#Dendrocopos_minor"/>
+        <birds:hasGender rdf:resource="http://birds.ontology#Male"/>
+        <birds:hasLifeStage rdf:resource="http://birds.ontology#Adult"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Lesser_Spotted_Woodpecker_Observation_001 -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Lesser_Spotted_Woodpecker_Observation_001">
+        <rdf:type rdf:resource="http://birds.ontology#Observation"/>
+        <birds:hasObservedBehavior rdf:resource="http://birds.ontology#TreeClimbing"/>
+        <birds:isObservedAtLocation rdf:resource="http://birds.ontology#SouthPark"/>
+        <birds:observedBird rdf:resource="http://birds.ontology#Lesser_Spotted_Woodpecker_001"/>
+        <birds:observedOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2024-06-05T09:30:00Z</birds:observedOn>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Male -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Male">
+        <rdf:type rdf:resource="http://birds.ontology#Gender"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#MediumTail -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#MediumTail">
+        <rdf:type rdf:resource="http://birds.ontology#TailMorphology"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Migratory -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Migratory">
+        <rdf:type rdf:resource="http://birds.ontology#MigratoryBehaviour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#MixedForest -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#MixedForest">
+        <rdf:type rdf:resource="http://birds.ontology#Habitat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Muscicapidae -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Muscicapidae">
+        <rdf:type rdf:resource="http://birds.ontology#Family"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Passeriformes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#NT -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#NT">
+        <rdf:type rdf:resource="http://birds.ontology#IUCNStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Nomadic -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Nomadic">
+        <rdf:type rdf:resource="http://birds.ontology#MigratoryBehaviour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Orchards -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Orchards">
+        <rdf:type rdf:resource="http://birds.ontology#Habitat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Paridae -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Paridae">
+        <rdf:type rdf:resource="http://birds.ontology#Family"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Passeriformes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#PartialMigratory -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#PartialMigratory">
+        <rdf:type rdf:resource="http://birds.ontology#MigratoryBehaviour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Parus -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Parus">
+        <rdf:type rdf:resource="http://birds.ontology#Genus"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Paridae"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Parus_major -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Parus_major">
+        <rdf:type rdf:resource="http://birds.ontology#Species"/>
+        <birds:foundInRegion rdf:resource="http://birds.ontology#Bulgaria"/>
+        <birds:hasBeakMorphology rdf:resource="http://birds.ontology#ShortConicalBeak"/>
+        <birds:hasBreedingSeason rdf:resource="http://birds.ontology#Spring"/>
+        <birds:hasBreedingSeason rdf:resource="http://birds.ontology#Summer"/>
+        <birds:hasIUCNStatus rdf:resource="http://birds.ontology#LC"/>
+        <birds:hasLegMorphology rdf:resource="http://birds.ontology#ShortPerchingLegs"/>
+        <birds:hasMigratoryBehaviour rdf:resource="http://birds.ontology#Resident"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Parus"/>
+        <birds:hasPopulationTrend rdf:resource="http://birds.ontology#Stable"/>
+        <birds:hasTailMorphology rdf:resource="http://birds.ontology#MediumTail"/>
+        <birds:hasTypicalBehavior rdf:resource="http://birds.ontology#CavityNesting"/>
+        <birds:hasTypicalBehavior rdf:resource="http://birds.ontology#TreeClimbing"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#Fruits"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#Insects"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#Seeds"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#DeciduousForest"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#MixedForest"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#UrbanParksAndGardens"/>
+        <birds:hasTypicalMeasurement rdf:resource="http://birds.ontology#Length_13_15_cm"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#BlackCentralStripe"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#BlackHead"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#BluishWings"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#WhiteCheeks"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#YellowBelly"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#YellowGreenBack"/>
+        <birds:hasWingMorphology rdf:resource="http://birds.ontology#RoundedWings"/>
+        <birds:hasImageUrl>https://bspb.org/wp-content/uploads/2021/07/P_major_1_S_Spasov.jpg</birds:hasImageUrl>
+        <birds:hasImageUrl>https://bspb.org/wp-content/uploads/2021/07/P_major_2_S_Spasov.jpg</birds:hasImageUrl>
+        <rdfs:label xml:lang="en">Great Tit</rdfs:label>
+        <rdfs:label xml:lang="bg">Голям синигер</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Passeriformes -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Passeriformes">
+        <rdf:type rdf:resource="http://birds.ontology#Order"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Aves"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Picidae -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Picidae">
+        <rdf:type rdf:resource="http://birds.ontology#Family"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Piciformes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Piciformes -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Piciformes">
+        <rdf:type rdf:resource="http://birds.ontology#Order"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Aves"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#ReddishOrangeBreast -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#ReddishOrangeBreast">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Resident -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Resident">
+        <rdf:type rdf:resource="http://birds.ontology#MigratoryBehaviour"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#RiparianForest -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#RiparianForest">
+        <rdf:type rdf:resource="http://birds.ontology#Habitat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#RoundedWings -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#RoundedWings">
+        <rdf:type rdf:resource="http://birds.ontology#WingMorphology"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Seeds -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Seeds">
+        <rdf:type rdf:resource="http://birds.ontology#Diet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#ShortConicalBeak -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#ShortConicalBeak">
+        <rdf:type rdf:resource="http://birds.ontology#BeakMorphology"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#ShortPerchingLegs -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#ShortPerchingLegs">
+        <rdf:type rdf:resource="http://birds.ontology#LegMorphology"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#SouthPark -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#SouthPark">
+        <rdf:type rdf:resource="http://birds.ontology#Location"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Spiders -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Spiders">
+        <rdf:type rdf:resource="http://birds.ontology#Diet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Spring -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Spring">
+        <rdf:type rdf:resource="http://birds.ontology#Season"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Stable -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Stable">
+        <rdf:type rdf:resource="http://birds.ontology#PopulationTrend"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#StiffTail -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#StiffTail">
+        <rdf:type rdf:resource="http://birds.ontology#TailMorphology"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#StreakedBelly -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#StreakedBelly">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Summer -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Summer">
+        <rdf:type rdf:resource="http://birds.ontology#Season"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Sylvia -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Sylvia">
+        <rdf:type rdf:resource="http://birds.ontology#Genus"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Sylviidae"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Sylvia_borin -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Sylvia_borin">
+        <rdf:type rdf:resource="http://birds.ontology#Species"/>
+        <birds:foundInRegion rdf:resource="http://birds.ontology#Bulgaria"/>
+        <birds:hasBeakMorphology rdf:resource="http://birds.ontology#ThinInsectivorousBeak"/>
+        <birds:hasBreedingSeason rdf:resource="http://birds.ontology#Spring"/>
+        <birds:hasBreedingSeason rdf:resource="http://birds.ontology#Summer"/>
+        <birds:hasIUCNStatus rdf:resource="http://birds.ontology#VU"/>
+        <birds:hasLegMorphology rdf:resource="http://birds.ontology#ShortPerchingLegs"/>
+        <birds:hasMigratoryBehaviour rdf:resource="http://birds.ontology#Migratory"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Sylvia"/>
+        <birds:hasPopulationTrend rdf:resource="http://birds.ontology#Decreasing"/>
+        <birds:hasTailMorphology rdf:resource="http://birds.ontology#MediumTail"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#Fruits"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#Insects"/>
+        <birds:hasTypicalDiet rdf:resource="http://birds.ontology#Spiders"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#DeciduousForest"/>
+        <birds:hasTypicalHabitat rdf:resource="http://birds.ontology#UrbanParksAndGardens"/>
+        <birds:hasTypicalMeasurement rdf:resource="http://birds.ontology#Length_13_14_cm"/>
+        <birds:hasTypicalMeasurement rdf:resource="http://birds.ontology#Wingspan_20_24_cm"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#GreyBluePatch"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#GreyBrownUpperparts"/>
+        <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#WhitishUnderparts"/>
+        <birds:hasWingMorphology rdf:resource="http://birds.ontology#RoundedWings"/>
+        <rdfs:label xml:lang="en">Garden Warbler</rdfs:label>
+        <rdfs:label xml:lang="bg">Градинско коприварче</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Sylviidae -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Sylviidae">
+        <rdf:type rdf:resource="http://birds.ontology#Family"/>
+        <birds:hasParentTaxon rdf:resource="http://birds.ontology#Passeriformes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#ThinInsectivorousBeak -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#ThinInsectivorousBeak">
+        <rdf:type rdf:resource="http://birds.ontology#BeakMorphology"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#TreeClimbing -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#TreeClimbing">
+        <rdf:type rdf:resource="http://birds.ontology#Behavior"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#UrbanParksAndGardens -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#UrbanParksAndGardens">
+        <rdf:type rdf:resource="http://birds.ontology#Habitat"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#VU -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#VU">
+        <rdf:type rdf:resource="http://birds.ontology#IUCNStatus"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Vitosha -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Vitosha">
+        <rdf:type rdf:resource="http://birds.ontology#Location"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#WhiteBelly -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#WhiteBelly">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#WhiteCheeks -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#WhiteCheeks">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#WhiteUndertail -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#WhiteUndertail">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#WhitishUnderparts -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#WhitishUnderparts">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Wingspan_20_22_cm -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Wingspan_20_22_cm">
+        <rdf:type rdf:resource="http://birds.ontology#WingspanMeasurement"/>
+        <birds:hasMaxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">22</birds:hasMaxValue>
+        <birds:hasMinValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20</birds:hasMinValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Wingspan_20_24_cm -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Wingspan_20_24_cm">
+        <rdf:type rdf:resource="http://birds.ontology#WingspanMeasurement"/>
+        <birds:hasMaxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</birds:hasMaxValue>
+        <birds:hasMinValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">20</birds:hasMinValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Wingspan_24_29_cm -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Wingspan_24_29_cm">
+        <rdf:type rdf:resource="http://birds.ontology#WingspanMeasurement"/>
+        <birds:hasMaxValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">29</birds:hasMaxValue>
+        <birds:hasMinValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">24</birds:hasMinValue>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Winter -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Winter">
+        <rdf:type rdf:resource="http://birds.ontology#Season"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#Worms -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#Worms">
+        <rdf:type rdf:resource="http://birds.ontology#Diet"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#YellowBelly -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#YellowBelly">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#YellowGreenBack -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#YellowGreenBack">
+        <rdf:type rdf:resource="http://birds.ontology#PlumagePattern"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://birds.ontology#ZygodactylLegs -->
+
+    <owl:NamedIndividual rdf:about="http://birds.ontology#ZygodactylLegs">
+        <rdf:type rdf:resource="http://birds.ontology#LegMorphology"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#BeakMorphology"/>
+            <rdf:Description rdf:about="http://birds.ontology#LegMorphology"/>
+            <rdf:Description rdf:about="http://birds.ontology#TailMorphology"/>
+            <rdf:Description rdf:about="http://birds.ontology#WingMorphology"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#Behavior"/>
+            <rdf:Description rdf:about="http://birds.ontology#Bird"/>
+            <rdf:Description rdf:about="http://birds.ontology#Diet"/>
+            <rdf:Description rdf:about="http://birds.ontology#Gender"/>
+            <rdf:Description rdf:about="http://birds.ontology#Habitat"/>
+            <rdf:Description rdf:about="http://birds.ontology#IUCNStatus"/>
+            <rdf:Description rdf:about="http://birds.ontology#LifeStage"/>
+            <rdf:Description rdf:about="http://birds.ontology#Location"/>
+            <rdf:Description rdf:about="http://birds.ontology#Measurement"/>
+            <rdf:Description rdf:about="http://birds.ontology#MigratoryBehaviour"/>
+            <rdf:Description rdf:about="http://birds.ontology#Morphology"/>
+            <rdf:Description rdf:about="http://birds.ontology#Observation"/>
+            <rdf:Description rdf:about="http://birds.ontology#PlumagePattern"/>
+            <rdf:Description rdf:about="http://birds.ontology#PopulationTrend"/>
+            <rdf:Description rdf:about="http://birds.ontology#Region"/>
+            <rdf:Description rdf:about="http://birds.ontology#Season"/>
+            <rdf:Description rdf:about="http://birds.ontology#Taxon"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#Family"/>
+            <rdf:Description rdf:about="http://birds.ontology#Genus"/>
+            <rdf:Description rdf:about="http://birds.ontology#Kingdom"/>
+            <rdf:Description rdf:about="http://birds.ontology#Order"/>
+            <rdf:Description rdf:about="http://birds.ontology#Phylum"/>
+            <rdf:Description rdf:about="http://birds.ontology#Species"/>
+            <rdf:Description rdf:about="http://birds.ontology#TaxonomicClass"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#LengthMeasurement"/>
+            <rdf:Description rdf:about="http://birds.ontology#WeightMeasurement"/>
+            <rdf:Description rdf:about="http://birds.ontology#WingspanMeasurement"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#Autumn"/>
+            <rdf:Description rdf:about="http://birds.ontology#Spring"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#Autumn"/>
+            <rdf:Description rdf:about="http://birds.ontology#Summer"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#Autumn"/>
+            <rdf:Description rdf:about="http://birds.ontology#Winter"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#CR"/>
+            <rdf:Description rdf:about="http://birds.ontology#EN"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#CR"/>
+            <rdf:Description rdf:about="http://birds.ontology#EW"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#CR"/>
+            <rdf:Description rdf:about="http://birds.ontology#EX"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#CR"/>
+            <rdf:Description rdf:about="http://birds.ontology#LC"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#CR"/>
+            <rdf:Description rdf:about="http://birds.ontology#NT"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#CR"/>
+            <rdf:Description rdf:about="http://birds.ontology#VU"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#EN"/>
+            <rdf:Description rdf:about="http://birds.ontology#EW"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#EN"/>
+            <rdf:Description rdf:about="http://birds.ontology#EX"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#EN"/>
+            <rdf:Description rdf:about="http://birds.ontology#LC"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#EN"/>
+            <rdf:Description rdf:about="http://birds.ontology#NT"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#EN"/>
+            <rdf:Description rdf:about="http://birds.ontology#VU"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#EW"/>
+            <rdf:Description rdf:about="http://birds.ontology#EX"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#EW"/>
+            <rdf:Description rdf:about="http://birds.ontology#LC"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#EW"/>
+            <rdf:Description rdf:about="http://birds.ontology#NT"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#EW"/>
+            <rdf:Description rdf:about="http://birds.ontology#VU"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#EX"/>
+            <rdf:Description rdf:about="http://birds.ontology#LC"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#EX"/>
+            <rdf:Description rdf:about="http://birds.ontology#NT"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#EX"/>
+            <rdf:Description rdf:about="http://birds.ontology#VU"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#Female"/>
+            <rdf:Description rdf:about="http://birds.ontology#Male"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#LC"/>
+            <rdf:Description rdf:about="http://birds.ontology#NT"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#LC"/>
+            <rdf:Description rdf:about="http://birds.ontology#VU"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#NT"/>
+            <rdf:Description rdf:about="http://birds.ontology#VU"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#Spring"/>
+            <rdf:Description rdf:about="http://birds.ontology#Summer"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#Spring"/>
+            <rdf:Description rdf:about="http://birds.ontology#Winter"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://birds.ontology#Summer"/>
+            <rdf:Description rdf:about="http://birds.ontology#Winter"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
