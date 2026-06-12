@@ -157,7 +157,8 @@ def option_query(class_name: str) -> str:
 SELECT ?item ?label
 WHERE {{
   ?item rdf:type birds:{class_name} .
-  OPTIONAL {{ ?item rdfs:label ?label . FILTER(LANG(?label) = "bg") }}
+  ?item rdfs:label ?label .
+  FILTER(LANGMATCHES(LANG(?label), "bg"))
 }}
 ORDER BY ?item
 """
