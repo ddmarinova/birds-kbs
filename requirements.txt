@@ -2,4 +2,3 @@
 streamlit
 rdflib
 pyparsing
-Pillow
