@@ -1539,6 +1539,7 @@
         <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#StreakedBelly"/>
         <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#WhiteUndertail"/>
         <birds:hasWingMorphology rdf:resource="http://birds.ontology#RoundedWings"/>
+        <birds:hasImageUrl>https://bspb.org/wp-content/uploads/2021/07/D_minor_1_M_Vasilev.jpg</birds:hasImageUrl>
         <rdfs:label xml:lang="en">Lesser Spotted Woodpecker</rdfs:label>
         <rdfs:label xml:lang="bg">Малък пъстър кълвач</rdfs:label>
     </owl:NamedIndividual>
@@ -1627,6 +1628,8 @@
         <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#ReddishOrangeBreast"/>
         <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#WhiteBelly"/>
         <birds:hasWingMorphology rdf:resource="http://birds.ontology#RoundedWings"/>
+        <birds:hasImageUrl>https://bspb.org/wp-content/uploads/2021/07/E_rubecula_1_B_Belchev.jpg</birds:hasImageUrl>
+        <birds:hasImageUrl>https://bspb.org/wp-content/uploads/2021/07/E_rubecula_2_B_Belchev.jpg</birds:hasImageUrl>
         <rdfs:label xml:lang="en">European Robin</rdfs:label>
         <rdfs:label xml:lang="bg">Червеногръдка</rdfs:label>
     </owl:NamedIndividual>
@@ -2249,6 +2252,7 @@
         <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#GreyBrownUpperparts"/>
         <birds:hasTypicalPlumagePattern rdf:resource="http://birds.ontology#WhitishUnderparts"/>
         <birds:hasWingMorphology rdf:resource="http://birds.ontology#RoundedWings"/>
+        <birds:hasImageUrl>https://bspb.org/wp-content/uploads/2021/07/S_borin_C_Bradshaw.jpg</birds:hasImageUrl>
         <rdfs:label xml:lang="en">Garden Warbler</rdfs:label>
         <rdfs:label xml:lang="bg">Градинско коприварче</rdfs:label>
     </owl:NamedIndividual>
