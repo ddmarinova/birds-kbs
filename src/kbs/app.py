@@ -6,10 +6,12 @@ import base64
 import mimetypes
 import re
 import textwrap
+from io import BytesIO
 from html import escape
 from pathlib import Path
 
 import streamlit as st
+from PIL import Image, ImageDraw, ImageFont
 from rdflib import Graph, URIRef
 from rdflib.exceptions import ParserError
 from rdflib.namespace import RDFS
@@ -367,7 +369,7 @@ def render_profile_summary(rows: list[dict[str, str]]) -> None:
     )
 
 
-def query_and_rows_to_svg(query: str, rows: list[dict[str, str]]) -> str:
+def query_and_rows_to_png(query: str, rows: list[dict[str, str]]) -> bytes:
     query_lines = ["SPARQL заявка", ""] + query.strip().splitlines()
     lines = []
     lines.extend(query_lines)
@@ -382,24 +384,46 @@ def query_and_rows_to_svg(query: str, rows: list[dict[str, str]]) -> str:
         wrapped = textwrap.wrap(f"{index}. {values}", width=120) or [""]
         lines.extend(wrapped)
 
-    width = 1400
-    line_height = 24
+    font = export_font()
     padding = 32
+    line_height = 26
+    measure = ImageDraw.Draw(Image.new("RGB", (1, 1)))
+    text_widths = [measure.textbbox((0, 0), line, font=font)[2] for line in lines]
+    width = max(900, min(1800, padding * 2 + max(text_widths, default=0) + 36))
     height = max(180, padding * 2 + line_height * len(lines))
 
-    text_lines = []
-    for index, line in enumerate(lines):
-        y = padding + 18 + index * line_height
-        text_lines.append(
-            f'<text x="{padding}" y="{y}" font-family="Menlo, Consolas, monospace" font-size="18" fill="#17231C">{escape(line)}</text>'
-        )
+    image = Image.new("RGB", (width, height), "#F6F8F4")
+    draw = ImageDraw.Draw(image)
+    draw.rounded_rectangle(
+        (18, 18, width - 18, height - 18),
+        radius=14,
+        fill="#E7EFE8",
+        outline="#2F7D5C",
+        width=2,
+    )
 
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}">
-  <rect width="100%" height="100%" rx="18" fill="#F6F8F4"/>
-  <rect x="18" y="18" width="{width - 36}" height="{height - 36}" rx="14" fill="#E7EFE8" stroke="#2F7D5C" stroke-width="2"/>
-  {''.join(text_lines)}
-</svg>
-"""
+    for index, line in enumerate(lines):
+        draw.text((padding, padding + index * line_height), line, font=font, fill="#17231C")
+
+    output = BytesIO()
+    image.save(output, format="PNG")
+    return output.getvalue()
+
+
+def export_font() -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
+    font_paths = [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
+        "/usr/share/fonts/truetype/liberation2/LiberationMono-Regular.ttf",
+        "/System/Library/Fonts/Menlo.ttc",
+        "/System/Library/Fonts/SFNSMono.ttf",
+        "/Library/Fonts/Arial Unicode.ttf",
+    ]
+
+    for font_path in font_paths:
+        if Path(font_path).exists():
+            return ImageFont.truetype(font_path, 18)
+
+    return ImageFont.load_default()
 
 
 def render_query_result_export(
@@ -410,13 +434,13 @@ def render_query_result_export(
     if not rows:
         return
 
-    safe_name = safe_file_name(file_name, suffix=".svg")
+    safe_name = safe_file_name(file_name, suffix=".png")
     st.download_button(
         "Изтегли заявката",
-        data=query_and_rows_to_svg(query, rows).encode("utf-8"),
+        data=query_and_rows_to_png(query, rows),
         file_name=safe_name,
-        mime="image/svg+xml",
-        key=f"query-results-svg-{safe_name}",
+        mime="image/png",
+        key=f"query-results-png-{safe_name}",
     )
 
 
@@ -448,7 +472,7 @@ def add_result_mode(mode: str, rows: list[dict[str, str]]) -> list[dict[str, str
 
 
 def safe_file_name(file_name: str, suffix: str) -> str:
-    stem = file_name.removesuffix(".svg").removesuffix(".csv")
+    stem = file_name.removesuffix(".png").removesuffix(".svg").removesuffix(".csv")
     safe_stem = re.sub(r"[^a-zA-Z0-9_-]+", "-", stem).strip("-")
     return f"{safe_stem or 'sparql-export'}{suffix}"
 
